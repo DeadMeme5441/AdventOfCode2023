@@ -12,8 +12,12 @@ def part_one():
     for line in lines:
         numbers = []
         for n in num:
-            appearances = [(i, int(n)) for i in range(len(line)) if line.startswith(n, i)]
-            numbers.extend(appearances)
+            left = line.find(n)
+            right = line.rfind(n)
+            if left != -1:
+                numbers.append((left, int(n)))
+            if right != -1 and right != left:
+                numbers.append((right, int(n)))
 
         numbers.sort()
 
@@ -56,8 +60,12 @@ def part_two():
     for line in lines:
         numbers = []
         for n in num_dict:
-            appearances = [(i, num_dict[n]) for i in range(len(line)) if line.startswith(n, i)]
-            numbers.extend(appearances)
+            left = line.find(n)
+            right = line.rfind(n)
+            if left != -1:
+                numbers.append((left, num_dict[n]))
+            if right != -1 and right != left:
+                numbers.append((right, num_dict[n]))
 
         numbers.sort()
 
