@@ -77,6 +77,7 @@ if __name__ == '__main__':
     start = time.time()
     print("Part one: {}".format(part_one()))
     print("Time: {} ms".format(round((time.time() - start) * 1000, 3)))
+
     start = time.time()
     print("Part two: {}".format(part_two()))
     print("Time: {} ms".format(round((time.time() - start) * 1000, 3)))
