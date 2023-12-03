@@ -27,7 +27,7 @@ def part_one():
             lines.append(temp)
 
 
-    valid_digits = []
+    sum = 0
     for i in range(len(lines)):
         digit = ""
         pos = []
@@ -42,7 +42,7 @@ def part_one():
             else:
                 if len(digit) > 0:
                     if check_valid(lines, pos):
-                        valid_digits.append(int(digit))
+                        sum += (int(digit))
                     digit = ""
                     pos = []
                 j += 1
@@ -50,11 +50,11 @@ def part_one():
             if j == len(lines[i]):
                 if len(digit) > 0:
                     if check_valid(lines, pos):
-                        valid_digits.append(int(digit))
+                        sum += (int(digit))
                     digit = ""
                     pos = []
 
-    return sum(valid_digits)
+    return sum
 
 
 def check_gear(lines, positions):
@@ -99,10 +99,11 @@ def part_two():
 
             else:
                 if len(digit) > 0:
-                    if check_gear(lines, pos):
-                        if check_gear(lines,pos) not in gears:
-                            gears[check_gear(lines,pos)] = []
-                        gears[check_gear(lines,pos)].append(int(digit))
+                    out = check_gear(lines, pos)
+                    if out:
+                        if out not in gears:
+                            gears[out] = []
+                        gears[out].append(int(digit))
                     digit = ""
                     pos = []
 
@@ -110,10 +111,11 @@ def part_two():
 
             if j == len(lines[i]):
                 if len(digit) > 0:
-                    if check_gear(lines, pos):
-                        if check_gear(lines,pos) not in gears:
-                            gears[check_gear(lines,pos)] = []
-                        gears[check_gear(lines,pos)].append(int(digit))
+                    out = check_gear(lines, pos)
+                    if out:
+                        if out not in gears:
+                            gears[out] = []
+                        gears[out].append(int(digit))
                     digit = ""
                     pos = []
 
