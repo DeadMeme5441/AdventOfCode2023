@@ -36,7 +36,7 @@ def part_two():
             sum_one += 2 ** (count - 1)
 
         for i in range(0, count):
-            cards[num + i + 1] += 1 * cards[num]
+            cards[num + i + 1] += cards[num]
 
     return sum_one, sum([x for x in cards.values()])
 

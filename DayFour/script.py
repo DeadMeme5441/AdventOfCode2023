@@ -55,7 +55,7 @@ def part_two():
         count = check_if_winning(winning_numbers, test_numbers)
 
         for i in range(0, count):
-            cards[num + i + 1] += 1 * cards[num]
+            cards[num + i + 1] += cards[num]
 
     return sum([x for x in cards.values()])
 
